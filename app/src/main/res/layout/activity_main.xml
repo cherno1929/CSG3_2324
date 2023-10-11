@@ -127,4 +127,14 @@
 
     </Button>
 
+    <Button
+        android:id="@+id/reiniciar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:backgroundTint="#F44336"
+        app:cornerRadius="20dp">
+
+    </Button>
+
 </LinearLayout>

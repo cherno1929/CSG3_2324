@@ -23,7 +23,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r1c1">
 
             </ImageView>
 
@@ -32,7 +33,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r1c2">
             </ImageView>
 
             <ImageView
@@ -40,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r1c3">
             </ImageView>
 
         </LinearLayout>
@@ -55,7 +58,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r2c1">
 
             </ImageView>
 
@@ -64,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r2c2">
             </ImageView>
 
             <ImageView
@@ -72,7 +77,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r2c3">
             </ImageView>
         </LinearLayout>
 
@@ -86,7 +92,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r3c1">
 
             </ImageView>
 
@@ -95,7 +102,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r3c2">
             </ImageView>
 
             <ImageView
@@ -103,7 +111,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cuadrado"
                 android:layout_weight="1"
-                android:adjustViewBounds="true">
+                android:adjustViewBounds="true"
+                android:id="@+id/r3c3">
             </ImageView>
         </LinearLayout>
     </LinearLayout>

@@ -1,7 +1,7 @@
 package com.example.myapplication
 
 class Tablero {
-    private val elements = Array(3) { Array<Char>(3) {' '} }
+    private val elements = Array(3) { Array<Char>(3) {'-'} }
 
     fun markCircle(x : Int, y : Int){
         if (x < elements.size && y < elements[0].size) {
@@ -19,8 +19,8 @@ class Tablero {
         var full : Boolean = false
         for (i in 0..2){
             for (j in 0..2){
-                full = this.elements[i][j] != ' '
-                if (full){
+                full = !(this.elements[i][j] == '-')
+                if (!full){
                     break
                 }
             }
@@ -50,6 +50,12 @@ class Tablero {
         return winD1 || winD2 || this.isFull()
     }
 
+    fun isEmpty(i: Int,j: Int): Boolean{
+        return elements[i][j] == '-'
+    }
 
+    fun getPos(i: Int, j: Int): Char{
+        return elements[i][j]
+    }
 
 }

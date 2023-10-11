@@ -19,9 +19,8 @@ class Tablero {
         var full : Boolean = false
         for (i in 0..2){
             for (j in 0..2){
-                full = !(this.elements[i][j] == '-')
-                if (!full){
-                    break
+                if (this.elements[i][j] == '-') {
+                    return false
                 }
             }
         }

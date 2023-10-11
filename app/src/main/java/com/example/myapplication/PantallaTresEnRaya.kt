@@ -8,8 +8,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.get
-import com.example.myapplication.R
-import com.example.myapplication.GestorTablero
 
 class PantallaTresEnRaya : AppCompatActivity() {
     private val gameController = GestorTablero()
@@ -26,7 +24,7 @@ class PantallaTresEnRaya : AppCompatActivity() {
         val btnvolver: Button = findViewById(R.id.volver)
         btnvolver.setOnClickListener{
 
-            val intent: Intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
     }

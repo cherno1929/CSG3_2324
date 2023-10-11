@@ -123,7 +123,8 @@
         android:layout_height="wrap_content"
         android:text="Volver"
         android:backgroundTint="#FF9800"
-        app:cornerRadius="20dp">
+        app:cornerRadius="20dp"
+        tools:ignore="VisualLintButtonSize">
 
     </Button>
 
@@ -133,7 +134,8 @@
         android:layout_height="wrap_content"
         android:text="Reiniciar"
         android:backgroundTint="#F44336"
-        app:cornerRadius="20dp">
+        app:cornerRadius="20dp"
+        tools:ignore="VisualLintButtonSize">
 
     </Button>
 

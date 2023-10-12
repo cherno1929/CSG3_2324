@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         val btn: Button = findViewById(R.id.butnplay)
         val btnH: Button = findViewById(R.id.butnhist)
         btn.setOnClickListener{
-            val intent1 = Intent(this,PantallaTresEnRaya::class.java)
+            val intent1 = Intent(this,pantalla_seleccion_modo::class.java)
             startActivity(intent1)
         }
         btnH.setOnClickListener{

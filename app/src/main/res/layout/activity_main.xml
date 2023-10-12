@@ -5,18 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/black">
 
 
     <Button
         android:id="@+id/butnplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jugar"
         android:backgroundTint="#F44336"
+        android:text="Jugar"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </Button>
+        app:layout_constraintVertical_bias="0.834"
+        tools:layout_editor_absoluteX="0dp"></Button>
+
+    <Button
+        android:id="@+id/butnhist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F44336"
+        android:text="Ver Historial"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.904"
+        tools:layout_editor_absoluteX="16dp"></Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

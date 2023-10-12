@@ -14,6 +14,7 @@ class PantallaTresEnRaya : AppCompatActivity() {
     private lateinit var tablero: Tablero
     private var end = false
     private var turnoJugador1 = true
+    private var hist = Historic()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_tres_en_raya)
@@ -23,7 +24,6 @@ class PantallaTresEnRaya : AppCompatActivity() {
 
         val btnvolver: Button = findViewById(R.id.volver)
         btnvolver.setOnClickListener{
-
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
@@ -60,12 +60,15 @@ class PantallaTresEnRaya : AppCompatActivity() {
                         if(turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug1){
                             end = true
                             mostrarMensaje("Ganó el jugador 1")
+                            hist.addPart("Ganó el jugador 1")
                         }else if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2){
                             end = true
                             mostrarMensaje("Ganó el jugador 2")
+                            hist.addPart("Ganó el jugador 2")
                         } else if(estadoJuego == GestorTablero.PartidaState.Empate){
                             end = true
                             mostrarMensaje("El resultado es un empate")
+                            hist.addPart("El resultado es un empate")
                         } else{
                             turnoJugador1 = !turnoJugador1
                         }

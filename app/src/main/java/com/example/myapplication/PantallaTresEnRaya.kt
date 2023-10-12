@@ -3,11 +3,16 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.get
+import java.io.OutputStreamWriter
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class PantallaTresEnRaya : AppCompatActivity() {
     private val gameController = GestorTablero()
@@ -60,15 +65,15 @@ class PantallaTresEnRaya : AppCompatActivity() {
                         if(turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug1){
                             end = true
                             mostrarMensaje("Ganó el jugador 1")
-                            hist.addPart("Ganó el jugador 1")
+                            addPart("Ganó el jugador 1")
                         }else if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2){
                             end = true
                             mostrarMensaje("Ganó el jugador 2")
-                            hist.addPart("Ganó el jugador 2")
+                            addPart("Ganó el jugador 2")
                         } else if(estadoJuego == GestorTablero.PartidaState.Empate){
                             end = true
                             mostrarMensaje("El resultado es un empate")
-                            hist.addPart("El resultado es un empate")
+                            addPart("El resultado es un empate")
                         } else{
                             turnoJugador1 = !turnoJugador1
                         }
@@ -99,5 +104,26 @@ class PantallaTresEnRaya : AppCompatActivity() {
         }
     }
 
+    fun guardarArchivo(texto: String) {
+        try {
+            val fout = OutputStreamWriter(openFileOutput("data.txt", MODE_APPEND))
+            fout.write(texto)
+            fout.close()
+        } catch (ex: Exception) {
+            Log.e("Ficheros", "Error al escribir fichero a memoria interna")
+        }
+    }
+
+    fun getDate() : String {
+        val time = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
+        val txt = formatter.format(time)
+        return txt
+    }
+
+    fun addPart(newPart:String) {
+        var text = newPart + " " + this.getDate()
+        guardarArchivo(text)
+    }
 
 }

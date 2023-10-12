@@ -108,6 +108,7 @@ class PantallaTresEnRaya : AppCompatActivity() {
         try {
             val fout = OutputStreamWriter(openFileOutput("data.txt", MODE_APPEND))
             fout.write(texto)
+            fout.write("\n")
             fout.close()
         } catch (ex: Exception) {
             Log.e("Ficheros", "Error al escribir fichero a memoria interna")

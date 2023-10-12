@@ -15,14 +15,13 @@ import java.io.OutputStreamWriter
 
 class Pantalla2 : AppCompatActivity() {
 
-    var histPart = Historial()
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla2)
 
         leerArchivo()
+
         val btn: Button = findViewById(R.id.butnGoBack)
         btn.setOnClickListener{
             val intent1 = Intent(this,MainActivity::class.java)
@@ -36,11 +35,15 @@ class Pantalla2 : AppCompatActivity() {
     }
 
     fun leerArchivo() {
-        var texto = ""
         try {
+            var txt = ""
             val fin = BufferedReader(InputStreamReader(openFileInput("data.txt")))
-            texto = fin.readLine()
-            llenarData(texto)
+            fin.useLines { lines ->
+                lines.forEach {
+                    txt += it + "\n"
+                }
+            }
+            llenarData(txt)
         } catch (ex: java.lang.Exception) {
             Log.e("Ficheros", "Error al leer el fichero desde la memoria interna")
         }

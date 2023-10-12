@@ -3,6 +3,7 @@ package com.example.myapplication;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -10,13 +11,15 @@ import java.util.Date;
 
 public class Historic {
 
-    private final String dirPart =  "app\\sampledata\\part.txt";
+    private final String dirPart =  "sampledata/part.txt";
 
     private String getDate(){
         Date current = new Date();
         SimpleDateFormat simpDate = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
         return simpDate.format(current);
     }
+
+
 
     public void addPart(String win_lose) {
         String info = win_lose + "--" + this.getDate();
@@ -26,7 +29,9 @@ public class Historic {
             writ = new BufferedWriter(new FileWriter(this.dirPart));
             writ.append(info);
             writ.close();
-         } catch (IOException e) {
+         } catch (FileNotFoundException e){
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

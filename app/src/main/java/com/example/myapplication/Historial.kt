@@ -19,9 +19,15 @@ class Historial {
     }
 
     fun getAllText() : String{
-        var txt = File(this.dirrPartida).readText(Charsets.UTF_8)
-        if (txt == "") {
-            txt = "No hay partidas.txt registradas"
+        var txt = ""
+        try{
+            txt = File(this.dirrPartida).readText(Charsets.UTF_8)
+            if (txt == "") {
+                txt = "No hay partidas.txt registradas"
+            }
+        }catch (ex : Exception){
+            txt = "Ups, algo fue mal"
+            throw ex
         }
         return txt
     }

@@ -45,4 +45,6 @@ class Pantalla2 : AppCompatActivity() {
             Log.e("Ficheros", "Error al leer el fichero desde la memoria interna")
         }
     }
+
+
 }

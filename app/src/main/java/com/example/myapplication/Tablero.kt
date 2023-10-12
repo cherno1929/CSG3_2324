@@ -3,6 +3,10 @@ package com.example.myapplication
 class Tablero {
     private val elements = Array(3) { Array<Char>(3) {'-'} }
 
+    fun getElements(): Array<Array<Char>> {
+        return this.elements
+    }
+
     fun markCircle(x : Int, y : Int){
         if (x < elements.size && y < elements[0].size) {
             this.elements[x][y] = 'o'

@@ -21,7 +21,7 @@ class pantalla_seleccion_modo : AppCompatActivity() {
             startActivity(intent)
         }
         butnVsMch.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,Pantalla3::class.java)
             startActivity(intent)
         }
         butnVolver.setOnClickListener {

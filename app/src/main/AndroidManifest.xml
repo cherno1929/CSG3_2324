@@ -16,9 +16,6 @@
             android:name=".Pantalla3"
             android:exported="false" />
         <activity
-            android:name=".PantallaTresRayaMach"
-            android:exported="false" />
-        <activity
             android:name=".pantalla_seleccion_modo"
             android:exported="false" />
         <activity

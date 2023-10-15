@@ -96,7 +96,6 @@ class PantallaTresEnRaya : AppCompatActivity() {
         if(turnoJugador1) {
             tablero.markCircle(posFila, posCol)
             view.setImageDrawable(getDrawable(R.drawable.circulo))
-
         }
         else{
             tablero.markCross(posFila, posCol)

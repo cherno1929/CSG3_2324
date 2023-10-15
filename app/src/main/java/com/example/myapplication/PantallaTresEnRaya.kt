@@ -19,7 +19,6 @@ class PantallaTresEnRaya : AppCompatActivity() {
     private lateinit var tablero: Tablero
     private var end = false
     private var turnoJugador1 = true
-    private var hist = Historial()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_tres_en_raya)

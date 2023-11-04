@@ -197,15 +197,11 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                 ficha.setOnClickListener{
                     if(!end && tablero.isEmpty(i,j)) {
                         setFicha(ficha, i, j)
-                        val estadoJuego = gameController.estadoPartida(turnoJugador1)
+                        var estadoJuego = gameController.estadoPartida(turnoJugador1)
                         if(turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug1){
                             end = true
                             mostrarMensaje("Ganó el jugador 1")
                             addPart("Ganó el jugador")
-                        }else if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2){
-                            end = true
-                            mostrarMensaje("Ganó el jugador 2")
-                            addPart("Perdio el jugador")
                         } else if(estadoJuego == GestorTablero.PartidaState.Empate){
                             end = true
                             mostrarMensaje("El resultado es un empate")
@@ -216,6 +212,13 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                             var fila = tx.split("_")[0].toInt()
                             var colm = tx .split("_")[1].toInt()
                             this.views.get(tx)?.let { it1 -> this.setFicha(it1,fila,colm) }
+
+                            estadoJuego = gameController.estadoPartida(turnoJugador1)
+                             if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2) {
+                                 end = true
+                                 mostrarMensaje("Ganó el jugador 2")
+                                 addPart("Perdio el jugador")
+                             }
                             turnoJugador1 = !turnoJugador1
                         }
                     }

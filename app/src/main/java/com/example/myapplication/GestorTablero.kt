@@ -46,7 +46,7 @@ class GestorTablero {
             val col3 = tablero.getPos(0,2) == 'x' && tablero.getPos(1,2) == 'x' && tablero.getPos(2,2) == 'x'
             val diag1 = tablero.getPos(0,0) == 'x' && tablero.getPos(1,1) == 'x' && tablero.getPos(2,2) == 'x'
             val diag2 = tablero.getPos(0,2) == 'x' && tablero.getPos(1,1) == 'x' && tablero.getPos(2,0) == 'x'
-            if( fila1 || fila2 || fila3 || col1 || col2 || col3 || diag1 || diag2 ){
+            if(fila1 || fila2 || fila3 || col1 || col2 || col3 || diag1 || diag2){
                 return PartidaState.GanaJug2
             } else if(tablero.isFull()){
                 return PartidaState.Empate

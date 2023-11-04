@@ -56,16 +56,25 @@
         android:id="@+id/button_goBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="236dp"
         android:text="Volver"
         app:layout_constraintTop_toBottomOf="@+id/button_vsPMach"
         tools:layout_editor_absoluteX="161dp" />
 
     <Button
+        android:id="@+id/button_hardMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Vs Hard Mode"
+        app:layout_constraintTop_toBottomOf="@+id/button_vsPMach"
+        tools:layout_editor_absoluteX="136dp" />
+
+    <Button
         android:id="@+id/button_vsPMach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="44dp"
         android:text="Vs Machine"
         app:layout_constraintTop_toBottomOf="@+id/button_vsPly"
         tools:layout_editor_absoluteX="144dp" />

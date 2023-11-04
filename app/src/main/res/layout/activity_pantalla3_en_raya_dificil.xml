@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Pantalla3_en_raya_dificil">
+
+    <LinearLayout
+        android:id="@+id/tableroLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r1c1">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r1c2">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r1c3">
+            </ImageView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r2c1">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r2c2">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r2c3">
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r3c1">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r3c2">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cuadrado"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:id="@+id/r3c3">
+            </ImageView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/volver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        android:backgroundTint="#FF9800"
+        app:cornerRadius="20dp"
+        tools:ignore="VisualLintButtonSize">
+
+    </Button>
+
+    <Button
+        android:id="@+id/reiniciar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:backgroundTint="#F44336"
+        app:cornerRadius="20dp"
+        tools:ignore="VisualLintButtonSize">
+
+    </Button>
+
+</LinearLayout>

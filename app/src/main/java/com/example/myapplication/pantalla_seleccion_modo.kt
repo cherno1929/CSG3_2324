@@ -15,6 +15,7 @@ class pantalla_seleccion_modo : AppCompatActivity() {
         val butnVsPl : Button = findViewById(R.id.button_vsPly)
         val butnVsMch : Button = findViewById(R.id.button_vsPMach)
         val butnVolver : Button = findViewById(R.id.button_goBack)
+        val butnHardMode : Button = findViewById(R.id.button_hardMode)
 
         butnVsPl.setOnClickListener {
             val intent = Intent(this,PantallaTresEnRaya::class.java)
@@ -26,6 +27,10 @@ class pantalla_seleccion_modo : AppCompatActivity() {
         }
         butnVolver.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+        butnHardMode.setOnClickListener {
+            val intent = Intent(this, Pantalla3_en_raya_dificil::class.java)
             startActivity(intent)
         }
 

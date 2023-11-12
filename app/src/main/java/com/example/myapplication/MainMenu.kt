@@ -12,18 +12,23 @@ class MainMenu : AppCompatActivity() {
 
        val btnSt : Button = findViewById(R.id.butnplay)
        val btnHs : Button = findViewById(R.id.butnhist)
+       val btnConf : Button = findViewById(R.id.butnconf)
 
        btnSt.setOnClickListener {
            val intent1 = Intent(this,pantalla_seleccion_modo::class.java)
            startActivity(intent1)
        }
 
-        btnHs.setOnClickListener {
+       btnHs.setOnClickListener {
             val intent1 = Intent(this,Pantalla2
             ::class.java)
             startActivity(intent1)
-        }
+       }
 
+       btnConf.setOnClickListener {
+           val intent1 = Intent(this, PantallaOpciones::class.java)
+           startActivity(intent1)
+       }
     }
 }
 

@@ -10,6 +10,18 @@
 
 
     <Button
+        android:id="@+id/butnconf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F44336"
+        android:text="Configuración"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.903"
+        tools:layout_editor_absoluteX="0dp"></Button>
+
+    <Button
         android:id="@+id/butnplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +30,7 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834"
+        app:layout_constraintVertical_bias="0.762"
         tools:layout_editor_absoluteX="0dp"></Button>
 
     <Button
@@ -30,7 +42,7 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.904"
-        tools:layout_editor_absoluteX="16dp"></Button>
+        app:layout_constraintVertical_bias="0.833"
+        tools:layout_editor_absoluteX="0dp"></Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

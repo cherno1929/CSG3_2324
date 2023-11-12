@@ -16,6 +16,9 @@
             android:name=".Pantalla3_en_raya_dificil"
             android:exported="false" />
         <activity
+            android:name=".PantallaOpciones"
+            android:exported="false" />
+        <activity
             android:name=".MainMenu"
             android:exported="false" />
         <activity

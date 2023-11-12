@@ -15,7 +15,8 @@
         android:src="@drawable/team"
         tools:layout_editor_absoluteX="-38dp"
         tools:layout_editor_absoluteY="0dp"
-        android:id="@+id/trichTeam">
+        android:id="@+id/trichTeam"
+        tools:ignore="MissingConstraints">
 
     </ImageView>
 

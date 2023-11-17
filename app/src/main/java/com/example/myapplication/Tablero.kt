@@ -31,28 +31,6 @@ class Tablero {
         return full
     }
 
-    fun isOver() : Boolean{
-        // "X" is the player
-        var winR :Boolean
-        var winC :Boolean
-        var winD1 :Boolean
-        var winD2 :Boolean
-
-        for (i in 0..2) {
-            winR = (this.elements[i][0] == this.elements[i][1] && this.elements[i][1] == this.elements[i][2])
-            winC = (this.elements[0][i] == this.elements[1][i] && this.elements[1][i] == this.elements[2][i])
-            if (winC || winR){
-                break
-                return true
-            }
-        }
-        winD1 = (this.elements[0][0] == this.elements[1][1] && this.elements[1][1] == this.elements[2][2])
-        winD2 = (this.elements[0][2] == this.elements[1][1] && this.elements[1][1] == this.elements[2][0])
-
-
-        return winD1 || winD2 || this.isFull()
-    }
-
     fun isEmpty(i: Int,j: Int): Boolean{
         return elements[i][j] == '-'
     }

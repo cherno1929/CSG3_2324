@@ -143,7 +143,6 @@
         android:id="@+id/titulo"
         android:layout_width="344dp"
         android:layout_height="65dp"
-        android:fontFamily="@font/lostar"
         android:text="Configuración"
         android:textColor="#b88c87"
         android:textSize="50sp"

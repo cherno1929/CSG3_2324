@@ -24,7 +24,7 @@ class Pantalla2 : AppCompatActivity() {
 
         val btn: Button = findViewById(R.id.butnGoBack)
         btn.setOnClickListener{
-            val intent1 = Intent(this,MainActivity::class.java)
+            val intent1 = Intent(this,MainMenu::class.java)
             startActivity(intent1)
         }
     }
@@ -48,6 +48,4 @@ class Pantalla2 : AppCompatActivity() {
             Log.e("Ficheros", "Error al leer el fichero desde la memoria interna")
         }
     }
-
-
 }

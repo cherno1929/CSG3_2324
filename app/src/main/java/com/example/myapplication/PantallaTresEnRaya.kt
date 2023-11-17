@@ -28,7 +28,7 @@ class PantallaTresEnRaya : AppCompatActivity() {
 
         val btnvolver: Button = findViewById(R.id.volver)
         btnvolver.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,MainMenu::class.java)
             startActivity(intent)
         }
     }

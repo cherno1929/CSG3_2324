@@ -34,7 +34,7 @@ class Pantalla3 : AppCompatActivity() {
         inicializarSensor()
 
         butnVolv.setOnClickListener {
-            val intent1 = Intent(this,MainActivity::class.java)
+            val intent1 = Intent(this,MainMenu::class.java)
             startActivity(intent1)
         }
     }

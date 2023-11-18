@@ -8,9 +8,24 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.ButtonBarLayout
 import java.io.BufferedReader
+import java.io.File
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.io.PrintWriter
+
+    fun deleteHist(){
+        val archivo = File(filesDir,"data.txt")
+
+        if (archivo.exists()){
+            archivo.delete()
+            Toast.makeText(this, "Historial borrado correctamente", Toast.LENGTH_SHORT).show()
+        } else {
+            archivo.createNewFile()
+        }
+    }
+
 
 
 class Pantalla2 : AppCompatActivity() {
@@ -21,11 +36,15 @@ class Pantalla2 : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla2)
 
         leerArchivo()
-
+        val btn2: Button = findViewById(R.id.butnDeleteHist)
         val btn: Button = findViewById(R.id.butnGoBack)
         btn.setOnClickListener{
             val intent1 = Intent(this,MainMenu::class.java)
             startActivity(intent1)
+        }
+
+        btn2.setOnClickListener{
+            deleteHist()
         }
     }
 

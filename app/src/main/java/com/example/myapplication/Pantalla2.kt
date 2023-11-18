@@ -15,6 +15,8 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
 
+class Pantalla2 : AppCompatActivity() {
+
     fun deleteHist(){
         val archivo = File(filesDir,"data.txt")
 
@@ -25,10 +27,6 @@ import java.io.PrintWriter
             archivo.createNewFile()
         }
     }
-
-
-
-class Pantalla2 : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +43,8 @@ class Pantalla2 : AppCompatActivity() {
 
         btn2.setOnClickListener{
             deleteHist()
+            val intent1 = Intent(this,Pantalla2::class.java)
+            startActivity(intent1)
         }
     }
 

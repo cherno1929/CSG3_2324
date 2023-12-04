@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent1)
         }
 
-        MediaPlayer.create(this, R.raw.cancion)
+        mediaPlayer = MediaPlayer.create(this, R.raw.cancion)
         mediaPlayer?.isLooping = true
         mediaPlayer?.start()
     }

@@ -25,6 +25,19 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.start()
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (mediaPlayer?.isPlaying == true) {
+            mediaPlayer?.pause()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (mediaPlayer?.isPlaying == false) {
+            mediaPlayer?.start()
+        }
+    }
     override fun onDestroy() {
         mediaPlayer?.stop()
         mediaPlayer?.release()

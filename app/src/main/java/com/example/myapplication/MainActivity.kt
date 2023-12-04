@@ -9,6 +9,7 @@ import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
     private var mediaPlayer: MediaPlayer? = null
+    private var isMinimized = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
@@ -27,14 +28,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        if (mediaPlayer?.isPlaying == true) {
+        if (!isChangingConfigurations) {
+            isMinimized = true
             mediaPlayer?.pause()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        if (mediaPlayer?.isPlaying == false) {
+        if (isMinimized && !mediaPlayer?.isPlaying!!) {
             mediaPlayer?.start()
         }
     }

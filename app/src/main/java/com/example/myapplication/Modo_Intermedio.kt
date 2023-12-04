@@ -23,7 +23,7 @@ class Modo_Intermedio : AppCompatActivity() {
     private var views = LinkedHashMap<String,ImageView>()
     private val player = 'x'
     private val oponent = 'o'
-    private val maxDepth = 5
+    private val maxDepth = 7
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -26,20 +26,6 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.start()
     }
 
-    override fun onPause() {
-        super.onPause()
-        if (!isChangingConfigurations) {
-            isMinimized = true
-            mediaPlayer?.pause()
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if (isMinimized && !mediaPlayer?.isPlaying!!) {
-            mediaPlayer?.start()
-        }
-    }
     override fun onDestroy() {
         mediaPlayer?.stop()
         mediaPlayer?.release()

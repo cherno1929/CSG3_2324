@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
-    private var mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.cancion)
+    private var mediaPlayer: MediaPlayer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent1)
         }
 
+        MediaPlayer.create(this, R.raw.cancion)
         mediaPlayer?.isLooping = true
         mediaPlayer?.start()
     }

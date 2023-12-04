@@ -71,6 +71,15 @@
         tools:layout_editor_absoluteX="136dp" />
 
     <Button
+        android:id="@+id/button_middMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="Vs Mid Mode"
+        app:layout_constraintTop_toBottomOf="@+id/button_vsPMach"
+        tools:layout_editor_absoluteX="136dp" />
+
+    <Button
         android:id="@+id/button_vsPMach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

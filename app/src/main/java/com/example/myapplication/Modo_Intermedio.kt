@@ -11,11 +11,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.get
 import java.io.OutputStreamWriter
 import java.lang.Integer.max
-import java.lang.Math.min
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
-class Pantalla3_en_raya_dificil : AppCompatActivity() {
+class Modo_Intermedio : AppCompatActivity() {
 
     private val gameController = GestorTablero()
     private var tablero = Tablero()
@@ -24,10 +23,11 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
     private var views = LinkedHashMap<String,ImageView>()
     private val player = 'x'
     private val oponent = 'o'
+    private val maxDepth = 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla3_en_raya_dificil)
+        setContentView(R.layout.activity_modo_intermedio)
 
         val butnVolv : Button = findViewById(R.id.volver)
 
@@ -76,7 +76,7 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
     private fun minimax(board: Array<Array<Char>>, depth: Int, isMax: Boolean): Int {
         var score = evaluate(board)
 
-        if ( score == 10 || score == -10){
+        if (depth == maxDepth || score == 10 || score == -10){
             return score
         }
 
@@ -92,7 +92,7 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
 
                     if (board[i][j] == '-'){
                         board[i][j] = this.player
-                        best = max(best,minimax(board,depth+1,!isMax))
+                        best = Integer.max(best, minimax(board, depth + 1, !isMax))
                         board[i][j] = '-'
                     }
                 }
@@ -105,7 +105,7 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
 
                     if (board[i][j] == '-'){
                         board[i][j] = this.oponent
-                        best = min(best,minimax(board,depth+1,!isMax))
+                        best = Math.min(best, minimax(board, depth + 1, !isMax))
                         board[i][j] = '-'
                     }
                 }
@@ -131,6 +131,11 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
     }
 
     private fun evaluate(b: Array<Array<Char>>): Int {
+        var minCol = 0
+        var minRow = 0
+        var minDig1 = 0
+        var minDig2 = 0
+
         //Check rows
         for (row in 0..2){
             if (b[row][0] ==  b[row][1] && b[row][1] == b[row][2]){
@@ -139,6 +144,18 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                 }else if (b[row][0] == this.oponent){
                     return -10
                 }
+            }
+            var i = 0
+            for (j in 0..2){
+                if (b[row][j] == '-'){
+                    i++
+                }else if(b[row][j] == this.oponent){
+                    break
+                    i = 10
+                }
+            }
+            if (minRow < 10 - i){
+                minRow = 10- i
             }
         }
         //Check cols
@@ -150,6 +167,18 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                     return -10
                 }
             }
+            var i = 0
+            for (j in 0..2){
+                if (b[col][j] == '-'){
+                    i++
+                }else if(b[col][j] == this.oponent){
+                    break
+                    i = 10
+                }
+            }
+            if (minCol < 10 - i){
+                minCol = 10- i
+            }
         }
         //Check diagonals
         if (b[0][0] == b[1][1] && b[1][1] == b[2][2]){
@@ -159,6 +188,28 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                 return -10
             }
         }
+        var i = 0
+        var i2 = 0
+        var pos = 2
+        for (j in 0..2){
+            if(b[j][j] == this.oponent){
+                i = 10
+                break
+            }else if(b[j][j] == '-'){
+                i++
+            }
+        }
+        for (j in 0..2){
+            if(b[j][pos-j] == this.oponent){
+                i2 = 10
+                break
+            }else if(b[j][pos-j] == '-'){
+                i2++
+            }
+        }
+        minDig1 = 10 - i
+        minDig2 = 10 - i2
+
         if (b[0][2] == b[1][1] && b[1][1] == b[2][0]){
             if (b[1][1] == this.player){
                 return 10
@@ -166,13 +217,11 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                 return -10
             }
         }
-        //Space for heuristic
-        return getHeuristic(b)
+
+        return max(max(minCol,minRow),max(minDig1,minDig2))
     }
 
-    private fun getHeuristic(b: Array<Array<Char>>): Int{
-        return 0;
-    }
+
 
     private fun inicializarPartida(){
         tablero = gameController.nuevoTablero()
@@ -219,11 +268,11 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
                             this.views.get(tx)?.let { it1 -> this.setFicha(it1,fila,colm) }
 
                             estadoJuego = gameController.estadoPartida(turnoJugador1)
-                             if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2) {
-                                 end = true
-                                 mostrarMensaje("Ganó el jugador 2")
-                                 addPart("Perdio el jugador")
-                             }
+                            if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2) {
+                                end = true
+                                mostrarMensaje("Ganó el jugador 2")
+                                addPart("Perdio el jugador")
+                            }
                             turnoJugador1 = !turnoJugador1
                         }
                     }

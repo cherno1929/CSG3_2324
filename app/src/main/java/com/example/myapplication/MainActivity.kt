@@ -1,12 +1,14 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
+    private var mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.cancion)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
@@ -17,5 +19,14 @@ class MainActivity : AppCompatActivity() {
             val intent1 = Intent(this,MainMenu::class.java)
             startActivity(intent1)
         }
+
+        mediaPlayer?.isLooping = true
+        mediaPlayer?.start()
+    }
+
+    override fun onDestroy() {
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        super.onDestroy()
     }
 }

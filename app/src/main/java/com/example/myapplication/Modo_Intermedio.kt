@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.get
 import java.io.OutputStreamWriter
 import java.lang.Integer.max
+import java.lang.Integer.min
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -23,7 +24,7 @@ class Modo_Intermedio : AppCompatActivity() {
     private var views = LinkedHashMap<String,ImageView>()
     private val player = 'x'
     private val oponent = 'o'
-    private val maxDepth = 7
+    private val maxDepth = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -145,17 +146,17 @@ class Modo_Intermedio : AppCompatActivity() {
                     return -10
                 }
             }
-            var i = 0
+            var i = 10
             for (j in 0..2){
                 if (b[row][j] == '-'){
-                    i++
+                    i--
                 }else if(b[row][j] == this.oponent){
+                    i = 0
                     break
-                    i = 10
                 }
             }
-            if (minRow < 10 - i){
-                minRow = 10- i
+            if(minRow < i){
+                minRow = i
             }
         }
         //Check cols
@@ -167,17 +168,17 @@ class Modo_Intermedio : AppCompatActivity() {
                     return -10
                 }
             }
-            var i = 0
+            var i = 10
             for (j in 0..2){
-                if (b[col][j] == '-'){
-                    i++
-                }else if(b[col][j] == this.oponent){
+                if (b[j][col] == '-'){
+                    i--
+                }else if(b[j][col] == this.oponent){
+                    i = 0
                     break
-                    i = 10
                 }
             }
-            if (minCol < 10 - i){
-                minCol = 10- i
+            if(minCol < i){
+                minCol = i
             }
         }
         //Check diagonals
@@ -188,27 +189,27 @@ class Modo_Intermedio : AppCompatActivity() {
                 return -10
             }
         }
-        var i = 0
-        var i2 = 0
+        var i = 10
+        var i2 = 10
         var pos = 2
         for (j in 0..2){
             if(b[j][j] == this.oponent){
-                i = 10
+                i = 0
                 break
             }else if(b[j][j] == '-'){
-                i++
+                i--
             }
         }
+        minDig1 = i
         for (j in 0..2){
             if(b[j][pos-j] == this.oponent){
-                i2 = 10
+                i2 = 0
                 break
             }else if(b[j][pos-j] == '-'){
-                i2++
+                i2--
             }
         }
-        minDig1 = 10 - i
-        minDig2 = 10 - i2
+        minDig2 = i2
 
         if (b[0][2] == b[1][1] && b[1][1] == b[2][0]){
             if (b[1][1] == this.player){
@@ -220,7 +221,6 @@ class Modo_Intermedio : AppCompatActivity() {
 
         return max(max(minCol,minRow),max(minDig1,minDig2))
     }
-
 
 
     private fun inicializarPartida(){

@@ -18,8 +18,5 @@ class PantallaOpciones : AppCompatActivity() {
             val intent1 = Intent(this,MainMenu::class.java)
             startActivity(intent1)
         }
-
-        val titulo: TextView = findViewById(R.id.titulo)
-        titulo.paintFlags = titulo.paintFlags or Paint.UNDERLINE_TEXT_FLAG
     }
 }

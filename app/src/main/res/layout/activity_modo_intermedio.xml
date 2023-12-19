@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Modo_Intermedio">
+    tools:context=".Modo_Intermedio"
+    android:background="#fff1ce">
 
     <LinearLayout
         android:id="@+id/tableroLayout"
@@ -122,7 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Volver"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#E9E1F2"
         app:cornerRadius="20dp"
         tools:ignore="VisualLintButtonSize">
 
@@ -133,7 +134,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Reiniciar"
-        android:backgroundTint="#F44336"
+        android:backgroundTint="#E5CDB2"
         app:cornerRadius="20dp"
         tools:ignore="VisualLintButtonSize">
 

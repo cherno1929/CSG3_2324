@@ -20,6 +20,10 @@ class myapp : Application(), LifecycleObserver {
         mediaPlayer?.setVolume(1.0f, 1.0f)
     }
 
+    fun setVolume(v: Float){
+        mediaPlayer?.setVolume(v, v)
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onAppBackgrounded() {
         Logger.log("APP BACKGROUNDED")
@@ -42,7 +46,6 @@ class myapp : Application(), LifecycleObserver {
     object Logger {
         fun log(message: String) {
             Log.d("Logger", message)
-            // O utiliza Log.e, Log.i, Log.w, etc., según sea necesario para tus registros.
         }
     }
 }

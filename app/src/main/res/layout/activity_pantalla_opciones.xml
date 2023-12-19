@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.676" />
 
     <Button
-        android:id="@+id/back7"
+        android:id="@+id/credits"
         android:layout_width="233dp"
         android:layout_height="47dp"
         android:backgroundTint="#c5a898"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.584"></Button>
 
     <Button
-        android:id="@+id/back6"
+        android:id="@+id/unavailable2"
         android:layout_width="233dp"
         android:layout_height="47dp"
         android:backgroundTint="#c5a898"
@@ -62,8 +62,8 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="244dp"
-        android:layout_height="47dp"
+        android:layout_width="125dp"
+        android:layout_height="46dp"
         android:backgroundTint="#c5a898"
         android:text="Volver"
         app:cornerRadius="20dp"
@@ -91,7 +91,7 @@
         android:id="@+id/volumeSeekBar"
         android:layout_width="185dp"
         android:layout_height="30dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="250dp"
         android:max="100"
         android:progress="100"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.344" />
 
     <Button
-        android:id="@+id/back4"
+        android:id="@+id/unavailable"
         android:layout_width="233dp"
         android:layout_height="47dp"
         android:backgroundTint="#c5a898"
@@ -115,10 +115,10 @@
         app:layout_constraintVertical_bias="0.419"></Button>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/volumen"
         android:layout_width="30dp"
         android:layout_height="25dp"
-        android:layout_marginTop="242dp"
+        android:layout_marginTop="252dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"

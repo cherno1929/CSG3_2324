@@ -1,42 +1,36 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:java:.,tool:gradle:
 version: 2.1
+
 jobs:
-  test-java:
+  build:
     docker:
-      - image: cimg/openjdk:17.0
+      - image: circleci/openjdk:11-jdk  # Utilizamos una imagen Docker con OpenJDK 11 preinstalado
+
+    working_directory: ~/repo
+
     steps:
       - checkout
+
+      # Configuramos el entorno Java
       - run:
-          name: Calculate cache key
-          command: |-
-            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
-                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
-      - restore_cache:
-          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          name: Setup Java
+          command: |
+            sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+            java -version
+            javac -version
+
+      # Compilamos el proyecto
       - run:
-          command: ./gradlew check
-      - store_test_results:
-          path: build/test-results
-      - save_cache:
-          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
-          paths:
-            - ~/.gradle/caches
-      - store_artifacts:
-          path: build/reports
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
+          name: Build
+          command: mvn clean install
+
+      # Ejecutamos las pruebas
       - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          name: Run Tests
+          command: mvn test
+
+# Configuramos el flujo de trabajo para ejecutar el job 'build' en cada push al repositorio
 workflows:
-  build-and-test:
+  version: 2
+  build:
     jobs:
-      - test-java
-    # - deploy:
-    #     requires:
-    #       - test-java
+      - build

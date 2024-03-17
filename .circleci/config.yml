@@ -18,12 +18,6 @@ jobs:
       - restore_cache:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
       - run:
-          name: Install Android SDK
-          command: |
-            mkdir -p ~/android-sdk && cd ~/android-sdk
-            wget -q https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
-            unzip -q commandlinetools-linux-6858069_latest.zip
-      - run:
           command: ./gradlew check
       - store_test_results:
           path: build/test-results

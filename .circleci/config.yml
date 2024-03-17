@@ -17,8 +17,8 @@ jobs:
                     sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
       - restore_cache:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
-      #- run:
-      #    command: ./gradlew check
+      - run:
+          command: ./gradlew check
       - store_test_results:
           path: build/test-results
       - save_cache:

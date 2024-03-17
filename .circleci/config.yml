@@ -5,9 +5,6 @@ jobs:
   test-java:
     docker:
       - image: cimg/openjdk:17.0
-    environment:
-      # Define la ubicación del SDK de Android usando la variable de entorno ANDROID_HOME
-      ANDROID_HOME: .../sdk
     steps:
       - checkout
       - run:

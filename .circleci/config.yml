@@ -23,8 +23,8 @@ jobs:
             mkdir -p ~/android-sdk && cd ~/android-sdk
             wget -q https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
             unzip -q commandlinetools-linux-6858069_latest.zip
-            yes | ./tools/bin/sdkmanager --licenses
-            ./tools/bin/sdkmanager "platform-tools" "platforms;android-30"
+            yes | ./cmdline-tools/bin/sdkmanager --licenses
+            ./cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-30"
       - run:
           command: ./gradlew check
       - store_test_results:

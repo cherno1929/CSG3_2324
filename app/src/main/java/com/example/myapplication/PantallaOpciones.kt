@@ -76,7 +76,6 @@ class PantallaOpciones : AppCompatActivity() {
 
         val builder = AlertDialog.Builder(this)
         builder.setMessage(mensaje)
-            .setCancelable(true)
             .setPositiveButton("Cerrar") { dialog, _ ->
                 dialog.dismiss()
             }

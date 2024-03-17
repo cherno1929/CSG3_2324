@@ -31,7 +31,7 @@ class pantalla_seleccion_modo : AppCompatActivity() {
             startActivity(intent)
         }
         butnHardMode.setOnClickListener {
-            val intent = Intent(this, Pantalla3_en_raya_dificil::class.java)
+            val intent = Intent(this, Pantalla3_Dificil::class.java)
             startActivity(intent)
         }
         butnMidMode.setOnClickListener {

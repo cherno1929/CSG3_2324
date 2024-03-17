@@ -20,7 +20,6 @@ class Tablero {
     }
 
     fun isFull(): Boolean {
-        var full : Boolean = true
         for (i in 0..2){
             for (j in 0..2){
                 if (this.elements[i][j] == '-') {
@@ -28,7 +27,7 @@ class Tablero {
                 }
             }
         }
-        return full
+        return true
     }
 
     fun isEmpty(i: Int,j: Int): Boolean{

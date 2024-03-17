@@ -28,7 +28,7 @@ class Modo_Intermedio : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_modo_intermedio)
+        setContentView(R.layout.activity_pantalla3)
 
         val butnVolv : Button = findViewById(R.id.volver)
 

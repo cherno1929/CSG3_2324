@@ -17,7 +17,7 @@
             android:name=".Modo_Intermedio"
             android:exported="false" />
         <activity
-            android:name=".Pantalla3_en_raya_dificil"
+            android:name=".Pantalla3_Dificil"
             android:exported="false" />
         <activity
             android:name=".PantallaOpciones"

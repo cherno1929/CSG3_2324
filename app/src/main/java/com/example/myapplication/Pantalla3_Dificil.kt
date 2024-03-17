@@ -15,7 +15,7 @@ import java.lang.Math.min
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
-class Pantalla3_en_raya_dificil : AppCompatActivity() {
+class Pantalla3_Dificil : AppCompatActivity() {
 
     private val gameController = GestorTablero()
     private var tablero = Tablero()
@@ -27,7 +27,7 @@ class Pantalla3_en_raya_dificil : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla3_en_raya_dificil)
+        setContentView(R.layout.activity_pantalla3)
 
         val butnVolv : Button = findViewById(R.id.volver)
 

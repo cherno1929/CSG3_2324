@@ -48,8 +48,8 @@ class GestorTablero {
             val diag2 = tablero.getPos(0,2) == 'x' && tablero.getPos(1,1) == 'x' && tablero.getPos(2,0) == 'x'
             if(fila1 || fila2 || fila3 || col1 || col2 || col3 || diag1 || diag2){
                 return PartidaState.GanaJug2
-            } else if(tablero.isFull()){
-                return PartidaState.Empate
+            } return else if(tablero.isFull()){
+                PartidaState.Empate
             } else{
                 return PartidaState.Continua
             }

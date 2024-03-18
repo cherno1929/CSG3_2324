@@ -12,8 +12,6 @@ import androidx.appcompat.widget.ButtonBarLayout
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.io.PrintWriter
 
 class Pantalla2 : AppCompatActivity() {
 

@@ -8,7 +8,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 
-class myapp : Application(), LifecycleObserver {
+class MY_APP : Application(), LifecycleObserver {
     private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate() {

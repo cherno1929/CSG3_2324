@@ -25,6 +25,13 @@ class Pantalla3_Dificil : AppCompatActivity() {
     private val player = 'x'
     private val oponent = 'o'
 
+    fun testFindBestMove(tablero: Array<Array<Char>>): Array<Int> {
+        return findBestMove(tablero)
+    }
+
+    fun testMinimax(tablero: Array<Array<Char>>, depth: Int, isMaximizingPlayer: Boolean): Int {
+        return minimax(tablero, depth, isMaximizingPlayer)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla3)

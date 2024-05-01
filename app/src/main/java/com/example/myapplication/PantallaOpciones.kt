@@ -33,7 +33,7 @@ class PantallaOpciones : AppCompatActivity() {
                 // Actualiza el volumen del MediaPlayer según el progreso de la SeekBar
                 val volume = progress / 100.0f // Ajusta el valor de 0 a 1
                 // Se crea una instancia de la aplicacion para modificar el volumen
-                val application = applicationContext as myapp
+                val application = applicationContext as myApp
                 application.setVolume(volume)
             }
 

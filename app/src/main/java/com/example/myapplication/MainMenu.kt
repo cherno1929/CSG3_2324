@@ -15,7 +15,7 @@ class MainMenu : AppCompatActivity() {
        val btnConf : Button = findViewById(R.id.butnconf)
 
        btnSt.setOnClickListener {
-           val intent1 = Intent(this,pantalla_seleccion_modo::class.java)
+           val intent1 = Intent(this,pantallaSeleccionModo::class.java)
            startActivity(intent1)
        }
 

@@ -29,7 +29,7 @@
             android:name=".Pantalla3"
             android:exported="false" />
         <activity
-            android:name=".pantalla_seleccion_modo"
+            android:name=".pantallaSeleccionModo"
             android:exported="false" />
         <activity
             android:name=".Pantalla2"

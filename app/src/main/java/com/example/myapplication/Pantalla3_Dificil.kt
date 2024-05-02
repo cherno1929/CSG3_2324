@@ -17,6 +17,7 @@ import java.util.Calendar
 
 class Pantalla3_Dificil : AppCompatActivity() {
 
+    private var gestorArchivo = Pantalla2()
     private val gameController = GestorTablero()
     private var tablero = Tablero()
     private var end : Boolean = false
@@ -226,11 +227,11 @@ class Pantalla3_Dificil : AppCompatActivity() {
                             this.views.get(tx)?.let { it1 -> this.setFicha(it1,fila,colm) }
 
                             estadoJuego = gameController.estadoPartida(turnoJugador1)
-                             if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2) {
-                                 end = true
-                                 mostrarMensaje("Ganó el jugador 2")
-                                 addPart("Perdio el jugador")
-                             }
+                            if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2) {
+                                end = true
+                                mostrarMensaje("Ganó el jugador 2")
+                                addPart("Perdio el jugador")
+                            }
                             turnoJugador1 = !turnoJugador1
                         }
                     }
@@ -280,7 +281,11 @@ class Pantalla3_Dificil : AppCompatActivity() {
 
     fun addPart(newPart:String) {
         var text = newPart + " " + this.getDate()
-        guardarArchivo(text)
+        this.gestorArchivo.guardarPartida(text)
+    }
+
+    fun setPantalla2(newPantalla2 : Pantalla2){
+        this.gestorArchivo = newPantalla2
     }
 
 }

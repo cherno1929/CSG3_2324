@@ -15,10 +15,13 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 
 class PantallaTresEnRaya : AppCompatActivity() {
+
+    private var gestorArchivo = Pantalla2()
     private val gameController = GestorTablero()
     private lateinit var tablero: Tablero
     private var end = false
     private var turnoJugador1 = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla3)
@@ -122,7 +125,11 @@ class PantallaTresEnRaya : AppCompatActivity() {
 
     fun addPart(newPart:String) {
         var text = newPart + " " + this.getDate()
-        guardarArchivo(text)
+        this.gestorArchivo.guardarPartida(text)
+    }
+
+    fun setPantalla2(newPantalla2 : Pantalla2){
+        this.gestorArchivo = newPantalla2
     }
 
 }

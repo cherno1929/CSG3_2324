@@ -17,6 +17,7 @@ import java.util.Calendar
 
 class Modo_Intermedio : AppCompatActivity() {
 
+    private var gestorArchivo = Pantalla2()
     private val gameController = GestorTablero()
     private var tablero = Tablero()
     private var end : Boolean = false
@@ -322,7 +323,11 @@ class Modo_Intermedio : AppCompatActivity() {
 
     fun addPart(newPart:String) {
         var text = newPart + " " + this.getDate()
-        guardarArchivo(text)
+        this.gestorArchivo.guardarPartida(text)
+    }
+
+    fun setPantalla2(newPantalla2 : Pantalla2){
+        this.gestorArchivo = newPantalla2
     }
 
 }

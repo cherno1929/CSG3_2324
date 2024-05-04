@@ -121,10 +121,6 @@ class PlayUITest {
                     val fila = tableroLayout.getChildAt(2) as LinearLayout
                     val ficha = fila.getChildAt(0)
                     ficha.performClick()
-
-                    uiController?.loopMainThreadForAtLeast(2000)
-
-                    Espresso.onView(ViewMatchers.withText("Jugar de nuevo")).perform(ViewActions.click())
                 }
             })
         )

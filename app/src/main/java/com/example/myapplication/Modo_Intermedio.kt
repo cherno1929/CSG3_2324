@@ -267,8 +267,9 @@ class Modo_Intermedio : AppCompatActivity() {
                             var fila = tx.split("_")[0].toInt()
                             var colm = tx .split("_")[1].toInt()
                             this.views.get(tx)?.let { it1 -> this.setFicha(it1,fila,colm) }
-
                             estadoJuego = gameController.estadoPartida(turnoJugador1)
+                            if(estadoJuego == GestorTablero.PartidaState.JaqueMate){
+                                mostrarMensajeJaque("Falta un movimiento para ganar o perder")}
                             if(!turnoJugador1 && estadoJuego == GestorTablero.PartidaState.GanaJug2) {
                                 end = true
                                 mostrarMensaje("Ganó el jugador 2")
@@ -288,6 +289,14 @@ class Modo_Intermedio : AppCompatActivity() {
             .setTitle(mensaje)
             .setPositiveButton("Jugar de nuevo", { dialog, which -> inicializarPartida() })
             .setNegativeButton("Cancelar", { dialog, which -> dialog.dismiss() })
+            .show()
+    }
+
+    private fun mostrarMensajeJaque(mensaje: String){
+        AlertDialog.Builder(this)
+            .setTitle(mensaje)
+            .setPositiveButton("Jugar de nuevo", { dialog, which -> inicializarPartida() })
+            .setNegativeButton("Aceptar", { dialog, which -> dialog.dismiss() })
             .show()
     }
 

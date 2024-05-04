@@ -2,13 +2,19 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="All Tests">
+      <entry key="GestorTableroTest">
         <State />
       </entry>
       <entry key="MainActivity">
         <State />
       </entry>
-      <entry key="MainActivityTest">
+      <entry key="testNoUltimoMovimientoParaPerder()">
+        <State />
+      </entry>
+      <entry key="testUltimoMovimientoParaGanar()">
+        <State />
+      </entry>
+      <entry key="testUltimoMovimientoParaPerder()">
         <State />
       </entry>
     </value>

@@ -11,13 +11,83 @@ class GestorTablero {
     private lateinit var tablero: Tablero
 
     enum class PartidaState{
-        GanaJug1, GanaJug2, Empate, Continua
+        GanaJug1, GanaJug2, Empate, Continua, JaqueMate
     }
 
     fun nuevoTablero(): Tablero{
         tablero = Tablero()
         return tablero
     }
+
+    fun faltaUnMovimiento(): Boolean {
+        // Check rows and columns
+        for (i in 0 until 3) {
+            var numMarcRow_X = 0
+            var numMarcRow_O = 0
+            var numMarcCol_X = 0
+            var numMarcCol_O = 0
+            for (j in 0 until 3) {
+                when (tablero.getPos(i, j)) {
+                    'o' -> {
+                        numMarcRow_O++
+                        numMarcRow_X = 0 // Reiniciar contador de fichas del jugador X
+                    }
+                    'x' -> {
+                        numMarcRow_X++
+                        numMarcRow_O = 0 // Reiniciar contador de fichas del jugador O
+                    }
+                }
+                when (tablero.getPos(j, i)) {
+                    'o' -> {
+                        numMarcCol_O++
+                        numMarcCol_X = 0 // Reiniciar contador de fichas del jugador X
+                    }
+                    'x' -> {
+                        numMarcCol_X++
+                        numMarcCol_O = 0 // Reiniciar contador de fichas del jugador O
+                    }
+                }
+                if (numMarcRow_O == 2 || numMarcRow_X == 2 || numMarcCol_O == 2 || numMarcCol_X == 2) {
+                    return true
+                }
+            }
+        }
+
+        // Check diagonals
+        var diag_1_x = 0
+        var diag_1_o = 0
+        var diag_2_x = 0
+        var diag_2_o = 0
+        for (i in 0 until 3) {
+            when (tablero.getPos(i, i)) {
+                'o' -> {
+                    diag_1_o++
+                    diag_1_x = 0 // Reiniciar contador de fichas del jugador X
+                }
+                'x' -> {
+                    diag_1_x++
+                    diag_1_o = 0 // Reiniciar contador de fichas del jugador O
+                }
+            }
+            when (tablero.getPos(i, 2 - i)) {
+                'o' -> {
+                    diag_2_o++
+                    diag_2_x = 0 // Reiniciar contador de fichas del jugador X
+                }
+                'x' -> {
+                    diag_2_x++
+                    diag_2_o = 0 // Reiniciar contador de fichas del jugador O
+                }
+            }
+            if (diag_1_x == 2 || diag_1_o == 2 || diag_2_o == 2 || diag_2_x == 2) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+
 
     fun estadoPartida(turnoJug1: Boolean): PartidaState {
         if (turnoJug1){
@@ -34,6 +104,9 @@ class GestorTablero {
             } else if(tablero.isFull()){
                 return PartidaState.Empate
             } else{
+                if (faltaUnMovimiento()){
+                    return PartidaState.JaqueMate
+                }
                 return PartidaState.Continua
             }
         }
@@ -51,6 +124,9 @@ class GestorTablero {
             } else if(tablero.isFull()){
                 return PartidaState.Empate
             } else{
+                if (faltaUnMovimiento()){
+                    return PartidaState.JaqueMate
+                }
                 return PartidaState.Continua
             }
         }

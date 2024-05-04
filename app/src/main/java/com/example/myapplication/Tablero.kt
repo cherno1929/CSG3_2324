@@ -38,4 +38,8 @@ class Tablero {
         return elements[i][j]
     }
 
+    fun setPos(i: Int, i1: Int, c: Char) {
+
+    }
+
 }

@@ -15,6 +15,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -48,4 +49,9 @@ dependencies {
     androidTestImplementation("org.mockito:mockito-core:3.12.4")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation ("androidx.test.espresso:espresso-intents:3.4.0")
+    androidTestImplementation ("info.cukes:cucumber-android:1.2.6")
+    androidTestImplementation ("info.cukes:cucumber-picocontainer:1.2.6")
+    androidTestImplementation ("com.android.support.test:rules:1.0.2")
+    androidTestImplementation ("info.cukes:cucumber-junit:1.2.6")
+
 }

@@ -1,8 +1,10 @@
-package com.example.myapplication;
+package test;
 
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import com.example.myapplication.Tablero;
 
 public class TableroTest {
 

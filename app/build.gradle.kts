@@ -14,6 +14,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        testApplicationId = "com.example.myapplication.test"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,4 +50,9 @@ dependencies {
     androidTestImplementation("org.mockito:mockito-core:3.12.4")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation ("androidx.test.espresso:espresso-intents:3.4.0")
+
+    implementation ("io.cucumber:cucumber-java:7.17.0")
+    implementation ("io.cucumber:cucumber-junit:7.17.0")
+    implementation ("io.cucumber:cucumber-android:7.14.0")
+
 }

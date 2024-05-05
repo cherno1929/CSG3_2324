@@ -51,8 +51,8 @@ dependencies {
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation ("androidx.test.espresso:espresso-intents:3.4.0")
 
-    androidTestImplementation ("io.cucumber:cucumber-java:7.17.0")
-    androidTestImplementation ("io.cucumber:cucumber-junit:7.17.0")
-    androidTestImplementation ("io.cucumber:cucumber-android:7.14.0")
+    implementation ("io.cucumber:cucumber-java:7.17.0")
+    implementation ("io.cucumber:cucumber-junit:7.17.0")
+    implementation ("io.cucumber:cucumber-android:7.14.0")
 
 }

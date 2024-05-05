@@ -1,4 +1,4 @@
-package com.example.myapplication.stepdefinitions;
+package test.stepdefinitions;
 
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +26,7 @@ public class PruebaSteps {
         tablero.markCircle(1, 1);
     }
 
-    @Then("Se marca el círculo")
+    @Then("Se marca un circulo")
     public void probando3() {
         assertEquals('o', tablero.getPos(1, 1));
     }
@@ -45,7 +45,7 @@ public class PruebaSteps {
         }
     }
 
-    @When("LLeno el tablero")
+    @When("Lleno el tablero")
     public void el_tablero_esta_lleno() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

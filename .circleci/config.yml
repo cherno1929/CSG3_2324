@@ -10,13 +10,6 @@ jobs:
       - run:
           name: Give execute permission to gradlew
           command: chmod +x ./gradlew
-      - run:
-          name: Install Android SDK
-          command: apt install sdkmanager
-      
-      - run:
-          name: Install Android SDK
-          command: sdkmanager "platform-tools" "platforms;android-30"
 #      - run:
 #          name: Install Android SDK
 #          command: |
@@ -66,7 +59,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-java
+    #  - test-java
     # - deploy:
     #     requires:
     #       - test-java

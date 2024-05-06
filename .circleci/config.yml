@@ -7,15 +7,15 @@ jobs:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
-#      - run:
-#          name: Install Android SDK
-#          command: |
-#            mkdir -p ~/android-sdk && cd ~/android-sdk
-#            wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
-#            unzip -q commandlinetools-linux-7583922_latest.zip
-#            mv cmdline-tools latest
-#            yes | ~/android-sdk/latest/bin/sdkmanager --licenses
-#            ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
+      - run:
+          name: Install Android SDK
+          command: |
+            mkdir -p ~/android-sdk && cd ~/android-sdk
+            wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
+            unzip -q commandlinetools-linux-7583922_latest.zip
+            mv cmdline-tools latest
+            yes | ~/android-sdk/latest/bin/sdkmanager --licenses
+            ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
             
 #      - run:
 #          name: Install Cucumber and Calabash
@@ -29,14 +29,14 @@ jobs:
       - run:
           name: Give execute permission to gradlew
           command: chmod +x ./gradlew
-#      - run:
-#          name: Calculate cache key
-#          command: |-
-#            cd ~/android-sdk
-#            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
-#                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
-#      - restore_cache:
-#          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+      - run:
+          name: Calculate cache key
+          command: |-
+            cd ~/android-sdk
+            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+      - restore_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           
       - run:
           command: ./gradlew check

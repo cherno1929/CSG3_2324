@@ -4,8 +4,8 @@ version: 2.1
 jobs:
   test-java:
     docker:
-      #- image: cimg/openjdk:17.0
-      - image: circleci/android:api-30
+      - image: cimg/openjdk:17.0
+      #- image: circleci/android:api-30
     steps:
       - checkout
       - run:

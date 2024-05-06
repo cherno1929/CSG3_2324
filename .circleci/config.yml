@@ -5,6 +5,7 @@ jobs:
   test-java:
     docker:
       - image: cimg/openjdk:17.0
+      - image: circleci/android:api-30
     steps:
       - checkout
       - run:

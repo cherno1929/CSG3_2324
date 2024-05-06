@@ -10,15 +10,15 @@ jobs:
       - run:
           name: Give execute permission to gradlew
           command: chmod +x ./gradlew
-#      - run:
-#          name: Install Android SDK
-#          command: |
-#            mkdir -p ~/android-sdk && cd ~/android-sdk
-#            wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
-#            unzip -q commandlinetools-linux-7583922_latest.zip
-#            mv cmdline-tools latest
-#            yes | ~/android-sdk/latest/bin/sdkmanager --licenses
-#            ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
+      - run:
+          name: Install Android SDK
+          command: |
+            mkdir -p ~/android-sdk && cd ~/android-sdk
+            wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
+            unzip -q commandlinetools-linux-7583922_latest.zip
+            mv cmdline-tools latest
+            yes | ~/android-sdk/latest/bin/sdkmanager --licenses
+            ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
             
 #      - run:
 #          name: Install Cucumber and Calabash

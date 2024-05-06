@@ -1,0 +1,64 @@
+# This config was automatically generated from your source code
+# Stacks detected: deps:java:.,tool:gradle:
+version: 2.1
+jobs:
+  test-java:
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - run:
+          name: Give execute permission to gradlew
+          command: chmod +x ./gradlew
+      - run:
+          name: Install Android SDK
+          command: |
+            mkdir -p ~/android-sdk && cd ~/android-sdk
+            wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
+            unzip -q commandlinetools-linux-7583922_latest.zip
+            mv cmdline-tools latest
+            yes | ~/android-sdk/latest/bin/sdkmanager --licenses
+            ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
+      
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew test
+
+      - run:
+          name: Run Integration Tests
+          command: ./gradlew connectedAndroidTest  
+                
+      - run:
+          name: Calculate cache key
+          command: |-
+            cd ~/android-sdk
+            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+      - restore_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          
+      - run:
+          command: ./gradlew check
+      - store_test_results:
+          path: build/test-results
+      - save_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          paths:
+            - ~/.gradle/caches
+      - store_artifacts:
+          path: build/reports
+  deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: deploy
+          command: '#e.g. ./deploy.sh'
+workflows:
+  build-and-test:
+    jobs:
+    #  - test-java
+      - deploy
+    # - deploy:
+    #     requires:
+    #       - test-java

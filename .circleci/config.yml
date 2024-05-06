@@ -19,17 +19,15 @@ jobs:
             mv cmdline-tools latest
             yes | ~/android-sdk/latest/bin/sdkmanager --licenses
             ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
-            
-#      - run:
-#          name: Install Cucumber and Calabash
-#          command: |
-#            gem install cucumber calabash-android
-            
-#      - run:
-#          name: Run Cucumber and Calabash tests
-#          command: calabash-android run app/build/outputs/apk/debug/app-debug.apk features/
-
       
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew test
+
+      - run:
+          name: Run Integration Tests
+          command: ./gradlew connectedAndroidTest  
+                
       - run:
           name: Calculate cache key
           command: |-

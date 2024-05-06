@@ -29,12 +29,12 @@ jobs:
       - run:
           name: Give execute permission to gradlew
           command: chmod +x ./gradlew
-      - run:
-          name: Calculate cache key
-          command: |-
-            cd ~/android-sdk
-            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
-                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+#      - run:
+#          name: Calculate cache key
+#          command: |-
+#            cd ~/android-sdk
+#            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+#                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
       - restore_cache:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           

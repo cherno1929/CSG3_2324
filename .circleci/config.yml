@@ -7,7 +7,7 @@ jobs:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
-      - run:
+#      - run:
 #          name: Install Android SDK
 #          command: |
 #            mkdir -p ~/android-sdk && cd ~/android-sdk

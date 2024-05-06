@@ -9,6 +9,10 @@ jobs:
       - checkout
       - run:
           name: Install Android SDK
+          command: apt install sdkmanager
+      
+      - run:
+          name: Install Android SDK
           command: sdkmanager "platform-tools" "platforms;android-30"
 #      - run:
 #          name: Install Android SDK

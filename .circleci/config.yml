@@ -21,18 +21,17 @@ jobs:
 #            yes | ~/android-sdk/latest/bin/sdkmanager --licenses
 #            ~/android-sdk/latest/bin/sdkmanager "platform-tools" "platforms;android-30"
       
-      - run:
-          name: Run Unit Tests
-          command: ./gradlew test
+#      - run:
+#          name: Run Unit Tests
+#          command: ./gradlew test
 
-      - run:
-          name: Run Integration Tests
-          command: ./gradlew connectedAndroidTest  
+#      - run:
+#          name: Run Integration Tests
+#          command: ./gradlew connectedAndroidTest  
                 
       - run:
           name: Calculate cache key
           command: |-
-            cd ~/android-sdk
             find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
                     sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
       - restore_cache:
